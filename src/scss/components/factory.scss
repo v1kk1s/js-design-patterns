@@ -1,0 +1,95 @@
+@import "bourbon";
+@import "../variables.scss";
+
+.fact {
+  padding: 40px;
+  min-height: 100vh;
+  background-color: #d9ffd9;
+
+  &-field {
+    position: relative;
+    @include size(90vw 61vw);
+    background-color: green;
+    border: 3px solid yellow;
+  }
+
+  &-center {
+    height: 61vw;
+    width: 3px;
+    background-color: yellow;
+    margin: auto;
+    @include position(absolute, 0 0 0 0);
+    
+    &:before {
+      display: block;
+      content: '';
+      border-radius: 50%;
+      @include position(absolute, 0 -8.5vw 0 null);
+      margin: auto;
+      @include size(17vw);
+      border: 3px solid yellow;
+    }
+  }
+
+  &-gate {
+    width: 14vw;
+    height: 38.3vw;
+    background-color: green;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    border: 3px solid yellow;
+    z-index: 2;
+
+    &:before {
+      @include size(7vh 23vh);
+      border: 3px solid yellow;
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+    }
+
+    &.left {
+      left: 0;
+      margin-left: -3px;
+
+      &:before {
+        left: 0;
+        margin-left: -3px;
+      }
+    }
+
+    &.right {
+      right: 0;
+      margin-right: -3px;
+
+      &:before {
+        right: 0;
+        margin-right: -3px;
+      }
+    }
+
+  }
+
+  &-circle {
+    display: block;
+    border-radius: 50%;
+    @include position(absolute, 0 null 0 null);
+    margin: auto;
+    @include size(17vw);
+    border: 3px solid yellow;
+    z-index: 1;
+
+    &.left-c {
+      left: 1.5vw;
+    }
+
+    &.right-c {
+      right: 1.5vw;
+    }
+  }
+}
