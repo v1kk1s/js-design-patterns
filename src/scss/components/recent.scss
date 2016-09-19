@@ -1,0 +1,104 @@
+@import "bourbon";
+@import "../variables.scss";
+
+.recent {
+  overflow: hidden;
+
+  &-contact-entry-wrap {
+    position: relative;
+    @include transition(transform 0.3s ease-in-out, opacity 0.3s ease-in-out);
+  }
+
+  &-contact {
+    border-bottom: 1px solid $gray;
+    @include padding(40px 5.5%);
+
+    @include align-items(center);
+    @include align-content(stretch);
+    @include display(flex);
+    @include flex-direction(row);
+    @include justify-content(flex-start);
+    @include flex-wrap(nowrap);
+
+    &-caption {
+      margin-top: 7px;
+      @include transform(translateX(10%));
+      @include transition( transform 0.3s $ease-in-out-quad);
+    }
+
+    &-logo {
+      @include transition(opacity 0.2s $ease-in-out-quad);
+      @include size(100px);
+    }
+
+    &-name {
+      color: $dark;
+      font-size: 33px;
+      font-family: $h-bold;
+      letter-spacing: -0.4px;
+      margin-bottom: 11px;
+    }
+
+    &-last-seen {
+      color: $gray3;
+      font-size: 21px;
+      font-family: $h-medium;
+      letter-spacing: 0.7px;
+    }
+  }
+
+  &-delete-contact {
+    width: 197px;
+    height: 180px;
+    position: absolute;
+    right: -214px;
+    top: 0;
+    background: $red;
+    @include align-items(center);
+    @include align-content(center);
+    @include display(flex);
+    @include flex-direction(column);
+    @include justify-content(center);
+    @include flex-wrap(nowrap);
+    @include transition(right 0.3s $ease-in-out-quad);
+
+    &-icon {
+      @include size(64px 65px);
+      background: url("../public/img/delete-contact-icon.png") no-repeat;
+      background-position: center center;
+    }
+
+    &-text {
+      color: white;
+      font-size: 22px;
+      margin-top: 20px;
+      font-family: $h-medium;
+      letter-spacing: 1px;
+    }
+  }
+
+  .delete {
+
+    .recent {
+
+      &-contact-logo {
+        opacity: 0;
+      }
+
+      &-contact-caption {
+        @include transform(translateX(-100px));
+      }
+
+      &-delete-contact {
+        right: 0;
+      }
+    }
+  }
+
+  .deleted {
+    @include transform(translateY(-181px));
+    opacity: 0;
+    z-index: -1;
+    display: none;
+  }
+}

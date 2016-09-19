@@ -1,0 +1,195 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$contacts-name: 'contacts';
+$contacts-x: 157px;
+$contacts-y: 126px;
+$contacts-offset-x: -157px;
+$contacts-offset-y: -126px;
+$contacts-width: 40px;
+$contacts-height: 40px;
+$contacts-total-width: 226px;
+$contacts-total-height: 216px;
+$contacts-image: 'sprite.png';
+$contacts: (157px, 126px, -157px, -126px, 40px, 40px, 226px, 216px, 'sprite.png', 'contacts', );
+$favourite-icon-name: 'favouriteIcon';
+$favourite-icon-x: 60px;
+$favourite-icon-y: 126px;
+$favourite-icon-offset-x: -60px;
+$favourite-icon-offset-y: -126px;
+$favourite-icon-width: 57px;
+$favourite-icon-height: 49px;
+$favourite-icon-total-width: 226px;
+$favourite-icon-total-height: 216px;
+$favourite-icon-image: 'sprite.png';
+$favourite-icon: (60px, 126px, -60px, -126px, 57px, 49px, 226px, 216px, 'sprite.png', 'favouriteIcon', );
+$friens-icon-name: 'friensIcon';
+$friens-icon-x: 0px;
+$friens-icon-y: 126px;
+$friens-icon-offset-x: 0px;
+$friens-icon-offset-y: -126px;
+$friens-icon-width: 60px;
+$friens-icon-height: 50px;
+$friens-icon-total-width: 226px;
+$friens-icon-total-height: 216px;
+$friens-icon-image: 'sprite.png';
+$friens-icon: (0px, 126px, 0px, -126px, 60px, 50px, 226px, 216px, 'sprite.png', 'friensIcon', );
+$group-default-name: 'groupDefault';
+$group-default-x: 126px;
+$group-default-y: 0px;
+$group-default-offset-x: -126px;
+$group-default-offset-y: 0px;
+$group-default-width: 100px;
+$group-default-height: 88px;
+$group-default-total-width: 226px;
+$group-default-total-height: 216px;
+$group-default-image: 'sprite.png';
+$group-default: (126px, 0px, -126px, 0px, 100px, 88px, 226px, 216px, 'sprite.png', 'groupDefault', );
+$groups-name: 'groups';
+$groups-x: 0px;
+$groups-y: 176px;
+$groups-offset-x: 0px;
+$groups-offset-y: -176px;
+$groups-width: 40px;
+$groups-height: 40px;
+$groups-total-width: 226px;
+$groups-total-height: 216px;
+$groups-image: 'sprite.png';
+$groups: (0px, 176px, 0px, -176px, 40px, 40px, 226px, 216px, 'sprite.png', 'groups', );
+$log-out-name: 'logOut';
+$log-out-x: 117px;
+$log-out-y: 126px;
+$log-out-offset-x: -117px;
+$log-out-offset-y: -126px;
+$log-out-width: 40px;
+$log-out-height: 44px;
+$log-out-total-width: 226px;
+$log-out-total-height: 216px;
+$log-out-image: 'sprite.png';
+$log-out: (117px, 126px, -117px, -126px, 40px, 44px, 226px, 216px, 'sprite.png', 'logOut', );
+$new-group-name: 'newGroup';
+$new-group-x: 0px;
+$new-group-y: 0px;
+$new-group-offset-x: 0px;
+$new-group-offset-y: 0px;
+$new-group-width: 126px;
+$new-group-height: 126px;
+$new-group-total-width: 226px;
+$new-group-total-height: 216px;
+$new-group-image: 'sprite.png';
+$new-group: (0px, 0px, 0px, 0px, 126px, 126px, 226px, 216px, 'sprite.png', 'newGroup', );
+$new-group-check-name: 'newGroupCheck';
+$new-group-check-x: 126px;
+$new-group-check-y: 88px;
+$new-group-check-offset-x: -126px;
+$new-group-check-offset-y: -88px;
+$new-group-check-width: 22px;
+$new-group-check-height: 18px;
+$new-group-check-total-width: 226px;
+$new-group-check-total-height: 216px;
+$new-group-check-image: 'sprite.png';
+$new-group-check: (126px, 88px, -126px, -88px, 22px, 18px, 226px, 216px, 'sprite.png', 'newGroupCheck', );
+$recent-name: 'recent';
+$recent-x: 40px;
+$recent-y: 176px;
+$recent-offset-x: -40px;
+$recent-offset-y: -176px;
+$recent-width: 40px;
+$recent-height: 40px;
+$recent-total-width: 226px;
+$recent-total-height: 216px;
+$recent-image: 'sprite.png';
+$recent: (40px, 176px, -40px, -176px, 40px, 40px, 226px, 216px, 'sprite.png', 'recent', );
+$settings-name: 'settings';
+$settings-x: 80px;
+$settings-y: 176px;
+$settings-offset-x: -80px;
+$settings-offset-y: -176px;
+$settings-width: 40px;
+$settings-height: 40px;
+$settings-total-width: 226px;
+$settings-total-height: 216px;
+$settings-image: 'sprite.png';
+$settings: (80px, 176px, -80px, -176px, 40px, 40px, 226px, 216px, 'sprite.png', 'settings', );
+$spritesheet-width: 226px;
+$spritesheet-height: 216px;
+$spritesheet-image: 'sprite.png';
+$spritesheet-sprites: ($contacts, $favourite-icon, $friens-icon, $group-default, $groups, $log-out, $new-group, $new-group-check, $recent, $settings, );
+$spritesheet: (226px, 216px, 'sprite.png', $spritesheet-sprites, );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url('public/img/#{$sprite-image}');
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
