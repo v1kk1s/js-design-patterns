@@ -42,13 +42,8 @@ export default function PlayersMaker() {
 
   };
 
-  function getRandomPlayer(allPlayers, alreadyTaken = []) {
-    let player = allPlayers[Math.floor(Math.random() * allPlayers.length)];
-
-    if(_.some(alreadyTaken, player)) {
-      console.log(player.name, 'taken');
-    }
-
+  function getRandomPlayer(players) {
+    let player = players[Math.floor(Math.random() * players.length)];
     return player;
   };
 
@@ -60,7 +55,7 @@ export default function PlayersMaker() {
         def: makePlayers('d', d),
         hDef: makePlayers('hd', hd),
         attack: makePlayers('att', att),
-        g: getRandomPlayer(goalkeeper),
+        g: [getRandomPlayer(goalkeeper)],
       };
 
       console.log(team, 'team');

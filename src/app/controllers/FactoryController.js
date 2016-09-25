@@ -1,11 +1,9 @@
 import View from '../views/factoryView.js';
-import Router from '../router/router';
 import PlayersMaker from './Factory';
 
-export default class RecentController {
+export default class FactoryController {
   constructor (container) {
     this.view = new View(container);
-    this.router = new Router(document.getElementById('app'));
     this.playersMaker = new PlayersMaker;
     this.render();
     this.initEvents();
@@ -13,7 +11,7 @@ export default class RecentController {
 
   initEvents() {
     const place1 = {hd: 4, d: 4, att: 2};
-    const place2 = {hd: 4, d: 5, att: 1};
+    const place2 = {hd: 3, d: 5, att: 1};
     const place3 = {hd: 4, d: 3, att: 3};
 
     document.getElementById('place1').addEventListener('click',  () => this.getPlace(place1));
@@ -23,7 +21,28 @@ export default class RecentController {
 
   getPlace (place) {
     const team = this.playersMaker.makeTeam(place);
+    this.addPlayersToDocument(team.g, 'gate');
+    this.addPlayersToDocument(team.def, 'defR');
+    this.addPlayersToDocument(team.hDef, 'halfDR');
+    this.addPlayersToDocument(team.attack, 'attackR');
   };
+
+  addPlayersToDocument(players, parent) {
+    document.getElementById(parent).innerHTML = '';
+
+    players.forEach((player) => {
+
+      let div = document.createElement('div');
+      div.className = "player";
+      div.innerHTML = `
+      <img src='../public/img/player.png'/>
+      <p>${player.name}</p>
+    `;
+
+      document.getElementById(parent).appendChild(div);
+
+    });
+  }
 
   render () {
     return this.view.render();

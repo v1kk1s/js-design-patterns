@@ -4,19 +4,20 @@
 .fact {
   padding: 40px;
   min-height: 100vh;
-  background-color: #d9ffd9;
+  background-color: #f1f1f1;
 
   &-field {
     position: relative;
     @include size(90vw 61vw);
-    background-color: green;
-    border: 3px solid yellow;
+    margin: 0 auto;
+    background-color: #1b511b;
+    border: 3px solid #9f9f00;
   }
 
   &-center {
     height: 61vw;
     width: 3px;
-    background-color: yellow;
+    background-color: #9f9f00;
     margin: auto;
     @include position(absolute, 0 0 0 0);
     
@@ -27,24 +28,29 @@
       @include position(absolute, 0 -8.5vw 0 null);
       margin: auto;
       @include size(17vw);
-      border: 3px solid yellow;
+      border: 3px solid #9f9f00;
     }
   }
 
   &-gate {
     width: 14vw;
     height: 38.3vw;
-    background-color: green;
+    background-color: #1b511b;
     position: absolute;
     top: 0;
     bottom: 0;
     margin: auto 0;
-    border: 3px solid yellow;
+    border: 3px solid #9f9f00;
     z-index: 2;
+
+    @include align-items(center);
+    @include display(flex);
+    @include flex-direction(column);
+    @include justify-content(center);
 
     &:before {
       @include size(7vh 23vh);
-      border: 3px solid yellow;
+      border: 3px solid #9f9f00;
       content: '';
       display: block;
       position: absolute;
@@ -81,7 +87,7 @@
     @include position(absolute, 0 null 0 null);
     margin: auto;
     @include size(17vw);
-    border: 3px solid yellow;
+    border: 3px solid #9f9f00;
     z-index: 1;
 
     &.left-c {
@@ -103,13 +109,44 @@
     margin: 20px 30px;
     line-height: 70px;
     text-align: center;
-    border: 1px solid yellow;
+    border: 1px solid #9f9f00;
     cursor: pointer;
     @include transition(background-color 0.2s ease);
 
     &:hover {
-      background-color: yellow;
+      background-color: #9f9f00;
     }
 
+  }
+
+  &-defense {
+    &.right {
+      right: 12vw;
+    }
+  }
+
+  &-attack {
+    &.right {
+      right: 32vw;
+    }
+  }
+
+  &-halfD {
+    &.right {
+      right: 22vw;
+    }
+  }
+
+  &-defense, &-attack, &-halfD {
+    @include align-items(center);
+    @include display(flex);
+    @include flex-direction(column);
+    @include justify-content(center);
+
+    width: 14vw;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
   }
 }

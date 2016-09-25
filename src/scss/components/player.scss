@@ -1,0 +1,17 @@
+@import "bourbon";
+@import "../variables.scss";
+
+.player {
+  width: 70px;
+  z-index: 9;
+  margin: 15px 0;
+
+  img {
+    @include size(70px);
+  }
+
+  p {
+    line-height: 20px;
+    text-align: center;
+  }
+}

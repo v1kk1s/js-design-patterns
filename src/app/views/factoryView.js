@@ -20,7 +20,10 @@ export default class FactoryView {
           <div class='fact-center'></div>
           <div class='fact-gate left'></div>
           <div class='fact-circle left-c'></div>
-          <div class='fact-gate right'></div>
+          <div class='fact-gate right' id='gate'></div>
+          <div class='fact-attack right' id='attackR'></div>
+          <div class='fact-halfD right' id='halfDR'></div>
+          <div class='fact-defense right' id='defR'></div>
           <div class='fact-circle right-c'></div>
         </div>
 			</div>
