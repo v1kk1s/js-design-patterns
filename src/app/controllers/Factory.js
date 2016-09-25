@@ -4,9 +4,7 @@ import AttackPlayers from '../models/Attack';
 import GoalkeeperPlayers from '../models/Goalkeeper';
 import _ from 'lodash';
 
-export default function PlayersMaker(position = {hd: 4, d: 4, att: 2}) {
-
-  const {hd, d, att} = position;
+export default function PlayersMaker() {
   const { defense } = new DefensePlayers;
   const { halfDefense } = new HalfDefensePlayers;
   const { attack } = new AttackPlayers;
@@ -56,11 +54,12 @@ export default function PlayersMaker(position = {hd: 4, d: 4, att: 2}) {
 
   return {
 
-    makeTeam () {
+    makeTeam (position = {hd: 4, d: 4, att: 2}) {
+      const {hd, d, att} = position;
       let team = {
-        d: makePlayers('d', d),
-        hd: makePlayers('hd', hd),
-        att: makePlayers('att', att),
+        def: makePlayers('d', d),
+        hDef: makePlayers('hd', hd),
+        attack: makePlayers('att', att),
         g: getRandomPlayer(goalkeeper),
       };
 

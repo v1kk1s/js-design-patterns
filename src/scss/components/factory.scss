@@ -92,4 +92,24 @@
       right: 1.5vw;
     }
   }
+
+  &-choose {
+    text-align: center;
+  }
+
+  &-place {
+    @include size(150px 70px);
+    display: inline-block;
+    margin: 20px 30px;
+    line-height: 70px;
+    text-align: center;
+    border: 1px solid yellow;
+    cursor: pointer;
+    @include transition(background-color 0.2s ease);
+
+    &:hover {
+      background-color: yellow;
+    }
+
+  }
 }
