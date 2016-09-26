@@ -26,6 +26,11 @@ export default class FactoryView {
           <div class='fact-defense right' id='defR'></div>
           <div class='fact-circle right-c'></div>
         </div>
+
+        <audio autoplay>
+          <source src="./../public/audio/anthem.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+        </audio>
 			</div>
 		`;
 

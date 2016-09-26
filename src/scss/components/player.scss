@@ -2,16 +2,20 @@
 @import "../variables.scss";
 
 .player {
-  width: 70px;
+  width: 100px;
   z-index: 9;
   margin: 15px 0;
 
   img {
+    margin: 0 auto;
+    display: block;
     @include size(70px);
   }
 
   p {
     line-height: 20px;
     text-align: center;
+    width: 100%;
+    padding: 10px;
   }
 }

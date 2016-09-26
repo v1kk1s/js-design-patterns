@@ -4,23 +4,23 @@ export default class AttackPlayers {
     this.attack = [
       {
         name: "Лионель Месси",
-        img: '',
+        img: 'att1.jpeg',
       },
       {
         name: "Криштиану Роналду",
-        img: '',
+        img: 'att2.jpg',
       },
       {
         name: "Уэйн Руни",
-        img: '',
+        img: 'att3.jpg',
       },
       {
         name: "Златан Ибрагимович",
-        img: '',
+        img: 'att4.png',
       },
       {
         name: "Луис Суарес",
-        img: '',
+        img: 'att5.jpeg',
       }
     ];
   }

@@ -3,24 +3,24 @@ export default class DefensePlayers {
   constructor() {
     this.defense = [
       {
-        name: "Thiago Silva",
-        img: '',
+        name: "Серхио Рамос",
+        img: 'def1.jpeg',
       },
       {
-        name: "Mats Hummels",
-        img: '',
+        name: "Джон Терри",
+        img: 'def1.jpg',
       },
       {
-        name: "Mehdi Benatia",
-        img: '',
+        name: "Паоло Мальдини",
+        img: 'def3.jpeg',
       },
       {
-        name: "Sergio Ramos",
-        img: '',
+        name: "Давид Луиз",
+        img: 'def4.jpg',
       },
       {
-        name: "Philipp Lahm",
-        img: '',
+        name: "Карлес Пуйоль",
+        img: 'def5.jpeg',
       }
     ];
   }

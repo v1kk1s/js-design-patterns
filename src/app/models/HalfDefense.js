@@ -3,24 +3,24 @@ export default class HalfDefensePlayers {
   constructor() {
     this.halfDefense = [
       {
-        name: "Серхио Бускетс",
-        img: '',
+        name: "Стивен Джеррард",
+        img: 'hd1.jpeg',
       },
       {
-        name: "Н’Голо Канте",
-        img: '',
+        name: "Фрэнк Лэмпард",
+        img: 'hd2.jpeg',
       },
       {
-        name: "Тони Кроос",
-        img: '',
+        name: "Андрес Иньеста",
+        img: 'hd3.png',
       },
       {
-        name: "Илкай Гюндоган",
-        img: '',
+        name: "Хави",
+        img: 'hd4.jpeg',
       },
       {
-        name: "Жоржиньо",
-        img: '',
+        name: "Андреа Пирло",
+        img: 'hd5.jpg',
       }
     ];
   }

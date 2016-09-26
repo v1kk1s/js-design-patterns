@@ -4,23 +4,23 @@ export default class GoalkeeperPlayers {
     this.goalkeeper = [
       {
         name: "Игорь Акинфеев",
-        img: '../public/img/player.png',
+        img: 'goaly1.png',
       },
       {
         name: "Икер Касильяс",
-        img: '../public/img/player.png',
+        img: 'goaly2.png',
       },
       {
         name: "Джанлуиджи Буффон",
-        img: '../public/img/player.png',
+        img: 'goaly3.png',
       },
       {
         name: "Давид Де Хеа",
-        img: '../public/img/player.png',
+        img: 'goaly4.png',
       },
       {
         name: "Мануэль Нойер",
-        img: '../public/img/player.png',
+        img: 'goaly5.jpeg',
       }
     ];
   }

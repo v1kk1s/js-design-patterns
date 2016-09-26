@@ -35,7 +35,7 @@ export default class FactoryController {
       let div = document.createElement('div');
       div.className = "player";
       div.innerHTML = `
-      <img src='../public/img/player.png'/>
+      <img src='../public/img/${player.img}'/>
       <p>${player.name}</p>
     `;
 
