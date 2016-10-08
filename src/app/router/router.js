@@ -1,4 +1,5 @@
 import Factory from '../controllers/FactoryController';
+import Profile from '../controllers/ProfileController.js';
 
 export default class Router {
 	constructor (container) {
@@ -32,7 +33,8 @@ export default class Router {
 	}
 
 	render (currentURL, convId) {
-		this.route('/', [Factory]);
+		//this.route('/', [Factory]);
+		this.route('/', [Profile]);
 
 		this.go(currentURL, convId);
 	}
