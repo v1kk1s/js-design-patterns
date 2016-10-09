@@ -1,0 +1,23 @@
+@import "bourbon";
+@import "../variables.scss";
+
+.prof {
+
+  @include size(600px 400px);
+  border: 1px solid #ccc;
+  margin: 100px auto;
+  color: #2c4987;
+
+  @include align-items(center);
+  @include display(flex);
+  @include flex-direction(column);
+  @include justify-content(space-around);
+
+  button {
+    @include button;
+    background-color: #2c4987;
+    background-image: none;
+    border: none;
+  }
+
+}

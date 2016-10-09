@@ -10,10 +10,23 @@ export default class FactoryController {
   }
 
   initEvents() {
-    this.facade.facade();
+    document.getElementById('vkBtn').addEventListener('click', this.getVkName.bind(this));
+    document.getElementById('fbBtn').addEventListener('click', this.getFbName.bind(this));
+
+    //this.facade.facade();
   }
 
   render () {
     return this.view.render();
+  }
+
+  getVkName () {
+    const id = document.getElementById('vk').value;
+    this.facade.facade({vkId: id});
+  }
+
+  getFbName () {
+    const id = document.getElementById('fb').value;
+    this.facade.facade({fbId: id});
   }
 }
