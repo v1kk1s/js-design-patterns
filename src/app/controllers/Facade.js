@@ -30,7 +30,7 @@ export default module = ( () => {
 
         FB.api(
           this.idFB,
-          { access_token: 'EAADxQH4u9tMBAC3uPyr7rjQxOvq4mqzWQwQQ2ZAxzuDwHos3yj6OfResEe6eZC1F8uueVwZATZCU03meCF94ZCLUQ6eF0NK0ZAX1aliMWVmtbYQP74Xi43K17IAhr9ZBPJ2DKo8ZCsu2jvg5lXlqeK4fFwv3ZBnBen9t2DKUFsXsYyQZDZD' },
+          { access_token: 'EAADxQH4u9tMBAPuHtcVpACuQHW1AXcHkx1H8bzjkauobwrLs5SVwNfoAUKxiR8hO3jv7nRZAR2sYGp7ocZBZCpRYXZC5EE1IYXN6iP0A3hKJ9Wjw3XnfFRBide3KZBT0M8RhrZCnjUlDdlCTOUdLT2sef89GGJ5jXKjDyLBHdu6QZDZD' },
           (r) => {
             this.fbName = r.name;
           }
