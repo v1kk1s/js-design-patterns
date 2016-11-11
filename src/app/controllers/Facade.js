@@ -25,16 +25,17 @@ export default module = ( () => {
       let token = '';
       FB.login(function(res) {
         token = res.authResponse.accessToken;
-        //console.log(token);
       }, { scope: 'public_profile'} );
 
+      setTimeout(() => {
         FB.api(
           this.idFB,
-          { access_token: 'EAADxQH4u9tMBAPuHtcVpACuQHW1AXcHkx1H8bzjkauobwrLs5SVwNfoAUKxiR8hO3jv7nRZAR2sYGp7ocZBZCpRYXZC5EE1IYXN6iP0A3hKJ9Wjw3XnfFRBide3KZBT0M8RhrZCnjUlDdlCTOUdLT2sef89GGJ5jXKjDyLBHdu6QZDZD' },
+          { access_token: token },
           (r) => {
             this.fbName = r.name;
           }
         )
+      }, 300)
     },
     getVkName: function() {
       document.getElementById('vkName').innerHTML = this.vkName;
@@ -61,7 +62,7 @@ export default module = ( () => {
 
         setTimeout(() => {
           _private.getFbName();
-        }, 1000);
+        }, 1500);
       }
     }
   }
