@@ -4,7 +4,7 @@ import Facade from './Facade';
 export default class FactoryController {
   constructor (container) {
     this.view = new View(container);
-    this.facade = Facade;
+    this.facade = Facade; // redundunt
     this.render();
     this.initEvents();
   }
@@ -12,8 +12,6 @@ export default class FactoryController {
   initEvents() {
     document.getElementById('vkBtn').addEventListener('click', this.getVkName.bind(this));
     document.getElementById('fbBtn').addEventListener('click', this.getFbName.bind(this));
-
-    //this.facade.facade();
   }
 
   render () {

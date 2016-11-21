@@ -16,26 +16,30 @@ export default module = ( () => {
       VK.init({
         apiId: 5659513
       });
-
       VK.Api.call('users.get', {uids: id, fields: 'contacts'}, (r) => {
-        this.vkName = r.response[0].first_name +' ' + r.response[0].last_name;
+        if (r.response) {
+          this.vkName = r.response[0].first_name +' ' + r.response[0].last_name;
+        } else {
+          this.vkName = 'User not found in vkontakte';
+        }
+        this.getVkName();
       });
     },
     connectToFB: function() {
       let token = '';
-      FB.login(function(res) {
+      FB.login((res) => {
         token = res.authResponse.accessToken;
+        if(res.status === 'connected') {
+          FB.api(
+            this.idFB,
+            { access_token: token },
+            (r) => {
+              this.fbName = r.name;
+              this.getFbName();
+            }
+          )
+        }
       }, { scope: 'public_profile'} );
-
-      setTimeout(() => {
-        FB.api(
-          this.idFB,
-          { access_token: token },
-          (r) => {
-            this.fbName = r.name;
-          }
-        )
-      }, 300)
     },
     getVkName: function() {
       document.getElementById('vkName').innerHTML = this.vkName;
@@ -49,20 +53,9 @@ export default module = ( () => {
     facade: function(args) {
       if (args.vkId) {
         _private.connectToVK(args.vkId);
-
-        setTimeout(() => {
-          _private.getVkName();
-        }, 500);
       }
-
       if (args.fbId) {
-        setTimeout(() => {
-          _private.connectToFB();
-        }, 300);
-
-        setTimeout(() => {
-          _private.getFbName();
-        }, 1500);
+        _private.connectToFB();
       }
     }
   }
