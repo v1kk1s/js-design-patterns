@@ -149,4 +149,11 @@
     top: 0;
     bottom: 0;
   }
+
+  &-losers {
+    @include align-items(center);
+    @include display(flex);
+    @include flex-direction(row);
+    @include justify-content(space-between);
+  }
 }

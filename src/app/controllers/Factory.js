@@ -42,6 +42,15 @@ export default function PlayersMaker() {
 
   };
 
+  function getLosers(team) {
+    const losers = [];
+    losers.def = _.differenceBy(defense, team.def);
+    losers.hDef = _.differenceBy(halfDefense, team.hDef);
+    losers.attack = _.differenceBy(attack, team.attack);
+    losers.g = _.differenceBy(goalkeeper, team.g);
+    return losers;
+  };
+
   function getRandomPlayer(players) {
     let player = players[Math.floor(Math.random() * players.length)];
     return player;
@@ -58,9 +67,11 @@ export default function PlayersMaker() {
         g: [getRandomPlayer(goalkeeper)],
       };
 
-      console.log(team, 'team');
-
       return team;
+    },
+
+    getLosers(team) {
+      return getLosers(team);
     },
 
   };

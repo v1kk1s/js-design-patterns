@@ -33,8 +33,8 @@ export default class Router {
 	}
 
 	render (currentURL, convId) {
-		//this.route('/', [Factory]);
-		this.route('/', [Profile]);
+		this.route('/', [Factory]);
+		//this.route('/', [Profile]);
 
 		this.go(currentURL, convId);
 	}

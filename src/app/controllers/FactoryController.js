@@ -21,14 +21,16 @@ export default class FactoryController {
 
   getPlace (place) {
     const team = this.playersMaker.makeTeam(place);
-    this.addPlayersToDocument(team.g, 'gate');
-    this.addPlayersToDocument(team.def, 'defR');
-    this.addPlayersToDocument(team.hDef, 'halfDR');
-    this.addPlayersToDocument(team.attack, 'attackR');
+    const losers = this.playersMaker.getLosers(team);
+    this.addPlayers(team);
+    this.addLosers(losers);
   };
 
-  addPlayersToDocument(players, parent) {
-    document.getElementById(parent).innerHTML = '';
+  addPlayersToDocument(players, parent, clearParent = true) {
+
+    if(clearParent) {
+      document.getElementById(parent).innerHTML = '';
+    }
 
     players.forEach((player) => {
 
@@ -42,6 +44,20 @@ export default class FactoryController {
       document.getElementById(parent).appendChild(div);
 
     });
+  }
+
+  addLosers(losers) {
+    this.addPlayersToDocument(losers.g, 'losers');
+    this.addPlayersToDocument(losers.def, 'losers', false);
+    this.addPlayersToDocument(losers.hDef, 'losers', false);
+    this.addPlayersToDocument(losers.attack, 'losers', false);
+  }
+
+  addPlayers(team) {
+    this.addPlayersToDocument(team.g, 'gate');
+    this.addPlayersToDocument(team.def, 'defR');
+    this.addPlayersToDocument(team.hDef, 'halfDR');
+    this.addPlayersToDocument(team.attack, 'attackR');
   }
 
   render () {
