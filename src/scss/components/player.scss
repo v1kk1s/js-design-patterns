@@ -6,6 +6,10 @@
   z-index: 9;
   margin: 15px 0;
 
+  &.highlight {
+    border: 1px solid red;
+  }
+
   img {
     margin: 0 auto;
     display: block;

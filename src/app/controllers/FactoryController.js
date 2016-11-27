@@ -1,10 +1,12 @@
 import View from '../views/factoryView.js';
 import PlayersMaker from './Factory';
+import Observer from './Observer';
 
 export default class FactoryController {
   constructor (container) {
     this.view = new View(container);
     this.playersMaker = new PlayersMaker;
+    this.observer = new Observer;
     this.render();
     this.initEvents();
   }
@@ -33,13 +35,18 @@ export default class FactoryController {
     }
 
     players.forEach((player) => {
-
       let div = document.createElement('div');
-      div.className = "player";
+      div.className = "player " + player.position;
       div.innerHTML = `
       <img src='../public/img/${player.img}'/>
       <p>${player.name}</p>
     `;
+
+      if (parent === 'losers') {
+        div.onmouseover = () => {
+          this.addObservers(player.position);
+        };
+      }
 
       document.getElementById(parent).appendChild(div);
 
@@ -58,6 +65,10 @@ export default class FactoryController {
     this.addPlayersToDocument(team.def, 'defR');
     this.addPlayersToDocument(team.hDef, 'halfDR');
     this.addPlayersToDocument(team.attack, 'attackR');
+  }
+
+  addObservers(position) {
+    this.observer.notifyObservers(position);
   }
 
   render () {

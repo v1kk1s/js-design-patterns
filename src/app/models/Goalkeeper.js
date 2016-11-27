@@ -5,22 +5,27 @@ export default class GoalkeeperPlayers {
       {
         name: "Игорь Акинфеев",
         img: 'goaly1.png',
+        position: 'goaly',
       },
       {
         name: "Икер Касильяс",
         img: 'goaly2.png',
+        position: 'goaly',
       },
       {
         name: "Джанлуиджи Буффон",
         img: 'goaly3.png',
+        position: 'goaly',
       },
       {
         name: "Давид Де Хеа",
         img: 'goaly4.png',
+        position: 'goaly',
       },
       {
         name: "Мануэль Нойер",
         img: 'goaly5.jpeg',
+        position: 'goaly',
       }
     ];
   }

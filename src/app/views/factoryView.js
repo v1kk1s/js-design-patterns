@@ -16,7 +16,7 @@ export default class FactoryView {
 			    <div class='fact-place' id='place3'>3-4-3</div>
 			  </div>
 
-        <div class='fact-field'>
+        <div class='fact-field' id='field'>
           <div class='fact-center'></div>
           <div class='fact-gate left'></div>
           <div class='fact-circle left-c'></div>
