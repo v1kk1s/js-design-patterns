@@ -23,8 +23,8 @@ export default class DefensePlayers {
         position: 'defense',
       },
       {
-        name: "Карлес Пуйоль",
-        img: 'def5.jpeg',
+        name: "Пер Мертезакер",
+        img: 'def5.jpg',
         position: 'defense',
       }
     ];

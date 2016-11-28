@@ -23,8 +23,8 @@ export default class GoalkeeperPlayers {
         position: 'goaly',
       },
       {
-        name: "Мануэль Нойер",
-        img: 'goaly5.jpeg',
+        name: "Юра Кабай",
+        img: 'kabay.jpg',
         position: 'goaly',
       }
     ];

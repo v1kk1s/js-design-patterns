@@ -18,12 +18,12 @@ export default class HalfDefensePlayers {
         position: 'halfDefense',
       },
       {
-        name: "Хави",
+        name: "Месут Езіл",
         img: 'hd4.jpeg',
         position: 'halfDefense',
       },
       {
-        name: "Андреа Пирло",
+        name: "Тео Волкотт",
         img: 'hd5.jpg',
         position: 'halfDefense',
       }
