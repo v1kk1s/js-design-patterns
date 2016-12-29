@@ -1,12 +1,14 @@
 import View from '../views/factoryView.js';
 import PlayersMaker from './Factory';
 import Observer from './Observer';
+import PubSub from './PubSub';
 
 export default class FactoryController {
   constructor (container) {
     this.view = new View(container);
     this.playersMaker = new PlayersMaker;
     this.observer = new Observer;
+    this.pubSub = new PubSub;
     this.render();
     this.initEvents();
   }
@@ -44,7 +46,8 @@ export default class FactoryController {
 
       if (parent === 'losers') {
         div.onmouseover = () => {
-          this.addObservers(player.position);
+          //this.addObservers(player.position);
+          this.addPubSubSubscription(player.position);
         };
       }
 
@@ -69,6 +72,10 @@ export default class FactoryController {
 
   addObservers(position) {
     this.observer.notifyObservers(position);
+  }
+
+  addPubSubSubscription(position) {
+    this.pubSub.publish('showSamePositionPlayers', { playerType: position });
   }
 
   render () {
