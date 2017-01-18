@@ -21,7 +21,7 @@ var config = {
 	sourceBundle: 'all.js',
 	paths: {
 		html: './src/*.html',
-		js: './src/**/*.js',
+		js: './src/app/**/*.js',
 		scss: './src/**/*.scss',
 		dist: './dist',
 		mainJs: './src/app/main.js',
