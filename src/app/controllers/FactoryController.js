@@ -8,7 +8,7 @@ export default class FactoryController {
     this.view = new View(container);
     this.playersMaker = new PlayersMaker;
     this.observer = new Observer;
-    this.pubSub = new PubSub;
+    this.pubSub = new PubSub();
     this.render();
     this.initEvents();
   }
@@ -17,6 +17,8 @@ export default class FactoryController {
     const place1 = {hd: 4, d: 4, att: 2};
     const place2 = {hd: 3, d: 5, att: 1};
     const place3 = {hd: 4, d: 3, att: 3};
+
+    this.addPubSubSubscription();
 
     document.getElementById('place1').addEventListener('click',  () => this.getPlace(place1));
     document.getElementById('place2').addEventListener('click',  () => this.getPlace(place2));
@@ -47,7 +49,7 @@ export default class FactoryController {
       if (parent === 'losers') {
         div.onmouseover = () => {
           //this.addObservers(player.position);
-          this.addPubSubSubscription(player.position);
+          this.publishToPubSub(player.position);
         };
       }
 
@@ -75,6 +77,24 @@ export default class FactoryController {
   }
 
   addPubSubSubscription(position) {
+
+    this.pubSub.subscribe('showSamePositionPlayers', (obj) => {
+      const { playerType } = obj;
+      const highlitedPlayers = document.getElementById('field').getElementsByClassName(playerType);
+      const allPlayers = document.getElementById('field').getElementsByClassName('player');
+
+      for(let i=0; i<allPlayers.length; i++) {
+        allPlayers[i].classList.remove('highlight');
+      }
+
+      for(let i=0; i<highlitedPlayers.length; i++) {
+        highlitedPlayers[i].classList.add('highlight');
+      }
+    });
+
+  }
+
+  publishToPubSub(position) {
     this.pubSub.publish('showSamePositionPlayers', { playerType: position });
   }
 

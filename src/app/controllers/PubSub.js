@@ -1,54 +1,41 @@
-export default function PubSub() {
+export default class PubSub {
 
-  const event = () => {
+  constructor() {
 
-    var topics = {};
+    if(!PubSub.instance) {
 
+      PubSub.instance = this;
+
+    }
+
+    this.topics = {};
+
+    return PubSub.instance;
+
+  }
+
+  subscribe (topic, listener) {
+    if (!this.topics[topic]) this.topics[topic] = { queue: [] };
+    var index = this.topics[topic].queue.push(listener) -1;
     return {
-
-      subscribe: function (topic, listener) {
-        if (!topics[topic]) topics[topic] = { queue: [] };
-
-        var index = topics[topic].queue.push(listener) -1;
-
-        return {
-          remove: () => {
-            delete topics[topic].queue[index];
-          }
-        };
-      },
-
-      publish: (topic, info) => {
-        if(!topics[topic] || !topics[topic].queue.length) return;
-
-        var { queue } = topics[topic];
-        queue.forEach((item) => {
-          item(info || {});
-        });
-      },
+      remove: () => {
+        delete this.topics[topic].queue[index];
+      }
     };
   };
 
-  const ev = new event();
+  unsubscribe (topic, listener) {
+    const index = this.topics[topic].queue.indexOf(listener);
+    delete this.topics[topic].queue[index];
+  };
 
-  ev.subscribe('showSamePositionPlayers', (obj) => {
-    const { playerType } = obj;
-    const highlitedPlayers = document.getElementById('field').getElementsByClassName(playerType);
-    const allPlayers = document.getElementById('field').getElementsByClassName('player');
+  publish (topic, info) {
+    if(!this.topics[topic] || !this.topics[topic].queue.length) return;
 
-    for(let i=0; i<allPlayers.length; i++) {
-      allPlayers[i].classList.remove('highlight');
-    }
-
-    for(let i=0; i<highlitedPlayers.length; i++) {
-      highlitedPlayers[i].classList.add('highlight');
-    }
-  });
-
-  return {
-    publish: (topic, info) => {
-      ev.publish(topic, info);
-    },
-  }
+    var { queue } = this.topics[topic];
+    queue.forEach((item) => {
+      item(info || {});
+    });
+  };
 
 };
