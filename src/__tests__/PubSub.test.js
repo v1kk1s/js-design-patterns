@@ -19,9 +19,26 @@ const topicsIndex = (topic, listener) => {
   return pubSub.topics[topic].queue.indexOf(listener);
 };
 
-const stupidSpy = () => {
-  return stupidSpy.calls ? stupidSpy.calls += 1 : stupidSpy.calls = 1;
-};
+let stupidSpy;
+
+test.beforeEach(() => {
+  stupidSpy = (...args) => {
+    if (!stupidSpy.args) {
+      stupidSpy.args = [];
+    }
+
+    stupidSpy.args.push(args);
+    stupidSpy.calls += 1;
+
+    return stupidSpy.calls;
+  };
+  stupidSpy.calls = 0;
+});
+
+test('PubSub should be a singleton', t => {
+  const pubSub2 = new PubSub();
+  t.deepEqual(pubSub, pubSub2);
+});
 
 test('Topic added after subscription', t => {
   const { prev, next } = topicsLength(testTopic, testListener);
@@ -29,7 +46,7 @@ test('Topic added after subscription', t => {
 });
 
 test('Subscribe values should not be falsy', t => {
-  const { prev, next } = topicsLength(testTopic, testListener);
+  const { prev, next } = topicsLength();
   t.is(prev, next);
 });
 
@@ -50,6 +67,22 @@ test('Unsubscribe values should not be falsy', t => {
 
 test('Was listener called', t => {
   topicsLength(testTopic, stupidSpy);
-  pubSub.publish(testTopic, testInfo);
+  pubSub.publish(testTopic, { testInfo });
   t.is(stupidSpy.calls, 1);
+  t.deepEqual(stupidSpy.args[0][0], { testInfo });
+});
+
+
+test('Publish should pass empty object', t => {
+  topicsLength(testTopic, stupidSpy);
+  pubSub.publish(testTopic);
+
+  t.deepEqual(stupidSpy.args[0][0], {});
+});
+
+test('Publish value should not be falsy', t => {
+  topicsLength(testTopic, stupidSpy);
+  pubSub.publish('some topic');
+
+  t.is(stupidSpy.calls, 0);
 });

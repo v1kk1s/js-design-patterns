@@ -23,13 +23,14 @@
     "gulp-sass": "2.1.1",
     "gulp-sourcemaps": "1.5.2",
     "main-bower-files": "2.8.0",
+    "nyc": "^10.1.2",
     "vinyl-buffer": "1.0.0",
     "vinyl-source-stream": "1.1.0",
     "vinyl-transform": "1.0.0",
     "watchify": "3.4.0"
   },
   "scripts": {
-    "test": "ava"
+    "test": "nyc ava"
   },
   "ava": {
     "babel": {
@@ -40,6 +41,13 @@
     },
     "require": [
       "babel-register"
+    ]
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text",
+      "html"
     ]
   },
   "author": "",
