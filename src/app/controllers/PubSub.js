@@ -24,6 +24,8 @@ export default class PubSub {
 
   unsubscribe (topic, listener) {
 
+    if(!topic || !listener) return;
+
     const index = this.topics[topic].queue.indexOf(listener);
 
     delete this.topics[topic].queue[index];
