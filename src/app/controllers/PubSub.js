@@ -37,7 +37,7 @@ export default class PubSub {
   publish (topic, info) {
     if(!this.topics[topic] || !this.topics[topic].queue.length) return;
 
-    var { queue } = this.topics[topic];
+    const { queue } = this.topics[topic];
     queue.forEach((item) => {
       item(info || {});
     });

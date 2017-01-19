@@ -3,7 +3,8 @@ import PubSub from '../app/controllers/PubSub';
 
 const pubSub = new PubSub();
 const testTopic = 'Test topic';
-const testListener = function() {console.log('asd')};
+const testInfo = 'Lorem';
+const testListener = () => {};
 
 const topicsLength = (topic, listener) => {
   const prev = Object.keys(pubSub.topics).length;
@@ -40,6 +41,15 @@ test('Check if topic is deleted', t => {
 
 test('Unsubscribe values should not be falsy', t => {
   const index = topicsIndex(testTopic, testListener);
+  const falsyTopic = 0;
   pubSub.unsubscribe(testTopic, 0);
+  pubSub.unsubscribe(falsyTopic, testListener);
   t.not(pubSub.topics[testTopic].queue[index], undefined);
+  t.is(pubSub.topics[falsyTopic], undefined);
+});
+
+test('Was listener called', t => {
+  topicsLength(testTopic, stupidSpy);
+  pubSub.publish(testTopic, testInfo);
+  t.is(stupidSpy.calls, 1);
 });
