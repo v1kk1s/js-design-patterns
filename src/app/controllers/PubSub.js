@@ -20,6 +20,8 @@ export default class PubSub {
 
     if (!this.topics[topic]) this.topics[topic] = { queue: [] };
 
+    let index = this.topics[topic].queue.push(listener) -1;
+
   };
 
   unsubscribe (topic, listener) {

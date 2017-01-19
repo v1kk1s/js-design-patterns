@@ -41,5 +41,5 @@ test('Check if topic is deleted', t => {
 test('Unsubscribe values should not be falsy', t => {
   const index = topicsIndex(testTopic, testListener);
   pubSub.unsubscribe(testTopic, 0);
-  t.is(pubSub.topics[testTopic].queue[index], undefined);
+  t.not(pubSub.topics[testTopic].queue[index], undefined);
 });
