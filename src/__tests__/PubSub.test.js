@@ -3,7 +3,7 @@ import PubSub from '../app/controllers/PubSub';
 
 const pubSub = new PubSub();
 const testTopic = 'Test topic';
-const testListener = () => {};
+const testListener = function() {console.log('asd')};
 
 const topicsLength = (topic, listener) => {
   const prev = Object.keys(pubSub.topics).length;
@@ -13,9 +13,13 @@ const topicsLength = (topic, listener) => {
   return { prev, next }
 };
 
-const topicsIndex = () => {
-  pubSub.subscribe(testTopic, testListener);
-  return pubSub.topics[testTopic].queue.indexOf(testListener);
+const topicsIndex = (topic, listener) => {
+  pubSub.subscribe(topic, listener);
+  return pubSub.topics[topic].queue.indexOf(listener);
+};
+
+const stupidSpy = () => {
+  return stupidSpy.calls ? stupidSpy.calls += 1 : stupidSpy.calls = 1;
 };
 
 test('Topic added after subscription', t => {
@@ -29,12 +33,13 @@ test('Subscribe values should not be falsy', t => {
 });
 
 test('Check if topic is deleted', t => {
-  const index = topicsIndex();
+  const index = topicsIndex(testTopic, testListener);
   pubSub.unsubscribe(testTopic, testListener);
   t.is(pubSub.topics[testTopic].queue[index], undefined);
 });
 
-//test('Unsubscribe values should not be falsy', t => {
-//  const index = topicsIndex();
-//  pubSub.unsubscribe(0, testListener);
-//});
+test('Unsubscribe values should not be falsy', t => {
+  const index = topicsIndex(testTopic, testListener);
+  pubSub.unsubscribe(testTopic, 0);
+  t.is(pubSub.topics[testTopic].queue[index], undefined);
+});
