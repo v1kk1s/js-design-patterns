@@ -30,7 +30,8 @@
     "watchify": "3.4.0"
   },
   "scripts": {
-    "test": "nyc ava"
+    "test": "nyc ava",
+    "watch:test": "ava --watch"
   },
   "ava": {
     "babel": {
